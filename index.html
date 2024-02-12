@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    
+    <title>Stack overflow</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    nav {
+        border-top: 3px solid #e7700d;
+        border-bottom: 1px solid gray;
+        width: 100%;
+        position: fixed;
+    }
+    .navbar-collapse > ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1%;
+    }
+    .my-profile {
+        width: 30px;
+        border-radius: 10%;
+    }
+    section {
+        margin: auto 3%;
+    }
+    #sidebar {
+        width: 16%;
+        height: 90svh;
+        display: block;
+        overflow-y: scroll;
+        position: fixed;
+    }
+    #sidebar > ul {
+        list-style: none;
+        padding-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    #sidebar > ul > li {
+        margin-bottom: 5%;
+        display: flex;
+        align-items: center;
+        gap: 5%;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg " style="height: 60px; width: 100%; position: fixed; background-color: white; z-index: 1000;">
+        <div class="container" style="margin: auto 4%;">
+          <a class="navbar-brand" href="#"><img src="./logo.png" alt="" width="15%">stack <b>overflow</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>  
+                </li>
+                <li class="nav-item" style="width: 80%;">
+                    <form class="d-flex" role="search">
+                        <button class="btn" type="submit"><svg aria-hidden="true" class="s-input-icon s-input-icon__search svg-icon iconSearch" width="18" height="32" viewBox="0 0 18 18"><path d="m18 16.5-5.14-5.18h-.35a7 7 0 1 0-1.19 1.19v.35L16.5 18l1.5-1.5ZM12 7A5 5 0 1 1 2 7a5 5 0 0 1 10 0Z"></path></svg></button>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </li>
+                <li class="nav-item" style="display: flex;">
+                    <img src="https://lh3.googleusercontent.com/a/AGNmyxbsYb09g3S3MP1zMOduTkta5c9lXa3e0aiPZ5w2=k-s48" alt="" class="my-profile"> 1
+                </li>
+                <li class="nav-item">
+                    <a href="https://stackexchange.com/users/28550260?tab=inbox" class="s-topbar--item js-inbox-button" aria-label="Inbox" role="menuitem" title="Recent inbox messages" aria-haspopup="true" aria-expanded="false" data-unread-count="0">
+                        <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M4.63 1h10.56a2 2 0 0 1 1.94 1.35L20 10.79V15a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-4.21l2.78-8.44c.25-.8 1-1.36 1.85-1.35Zm8.28 12 2-2h2.95l-2.44-7.32a1 1 0 0 0-.95-.68H5.35a1 1 0 0 0-.95.68L1.96 11h2.95l2 2h6Z"></path></svg>
+                        <span class="s-activity-indicator s-activity-indicator__danger js-unread-count d-none">0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://stackexchange.com/users/28550260?tab=reputation" class="s-topbar--item js-achievements-button" data-unread-class="fc-success" aria-label="Achievements" role="menuitem" title="Recent achievements: reputation, badges, and privileges earned" aria-haspopup="true" aria-expanded="false" data-unread-count="0" data-lit-up="false">
+                        <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3ZM3 7c-.5 0-1-.5-1-1V4h1v3Zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1ZM16 6c0 .5-.5 1-1 1V4h1v2Z"></path></svg>
+                        <span class="s-activity-indicator s-activity-indicator__success js-unread-count d-none">+0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/help" class="s-topbar--item js-help-button" role="menuitem" title="Help Center and other resources" aria-haspopup="true" aria-controls="topbar-help-dialog" data-ga="[&quot;top navigation&quot;,&quot;help menu click&quot;,null,null,null]" aria-expanded="false">
+                        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1C4.64 1 1 4.64 1 9c0 4.36 3.64 8 8 8 4.36 0 8-3.64 8-8 0-4.36-3.64-8-8-8Zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23ZM11.77 8c-.59.66-1.78 1.09-2.05 1.97a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.06-1.35.66-2.2 1.83-2.88.39-.29.7-.75.7-1.24.01-1.24-1.64-1.82-2.35-.72-.21.33-.18.73-.18 1.1H5.75c0-1.97 1.03-3.26 3.03-3.26 1.75 0 3.47.87 3.47 2.83 0 .57-.2 1.05-.48 1.44Z"></path></svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://stackexchange.com" class="s-topbar--item js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" aria-label="Site switcher" role="menuitem" title="A list of all 183 Stack Exchange sites" aria-haspopup="true" aria-expanded="false" data-ga="[&quot;top navigation&quot;,&quot;stack exchange click&quot;,null,null,null]">
+                        <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2ZM1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2Zm16-7H1v4h16V6Z"></path></svg>
+                    </a>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div style="height: 60px; width: 100%;"></div>
+
+    <main class="row position-relative">
+        <section id="sidebar" class="col-1">
+            <ul>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconHome" width="18" height="18" viewBox="0 0 18 18"><path d="M15 10v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5H0l9-9 9 9h-3Zm-8 1v6h4v-6H7Z"></path></svg>                
+                    <span class="-link--channel-name">Home</span>    
+                </li>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconQuestion" width="18" height="18" viewBox="0 0 18 18"><path d="m4 15-3 3V4c0-1.1.9-2 2-2h12c1.09 0 2 .91 2 2v9c0 1.09-.91 2-2 2H4Zm7.75-3.97c.72-.83.98-1.86.98-2.94 0-1.65-.7-3.22-2.3-3.83a4.41 4.41 0 0 0-3.02 0 3.8 3.8 0 0 0-2.32 3.83c0 1.29.35 2.29 1.03 3a3.8 3.8 0 0 0 2.85 1.07c.62 0 1.2-.11 1.71-.34.65.44 1 .68 1.06.7.23.13.46.23.7.3l.59-1.13a5.2 5.2 0 0 1-1.28-.66Zm-1.27-.9a5.4 5.4 0 0 0-1.5-.8l-.45.9c.33.12.66.29.98.5-.2.07-.42.11-.65.11-.61 0-1.12-.23-1.52-.68-.86-1-.86-3.12 0-4.11.8-.9 2.35-.9 3.15 0 .9 1.01.86 3.03-.01 4.08Z"></path></svg>
+                    <span>Questions</span>
+                </li>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconTags" width="18" height="18" viewBox="0 0 18 18"><path d="M9.24 1a3 3 0 0 0-2.12.88l-5.7 5.7a2 2 0 0 0-.38 2.31 3 3 0 0 1 .67-1.01l6-6A3 3 0 0 1 9.83 2H14a3 3 0 0 1 .79.1A2 2 0 0 0 13 1H9.24Z" opacity=".4"></path><path d="M9.83 3a2 2 0 0 0-1.42.59l-6 6a2 2 0 0 0 0 2.82L6.6 16.6a2 2 0 0 0 2.82 0l6-6A2 2 0 0 0 16 9.17V5a2 2 0 0 0-2-2H9.83ZM12 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"></path></svg>                
+                    <span>Tags</span>
+                </li>
+                <li style="height: 20px;"></li>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconBookmark" width="18" height="18" viewBox="0 0 18 18"><path d="M3 17V3c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v14l-6-4-6 4Z"></path></svg>                
+                    <span>Saves</span>
+                </li>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconPeople" width="18" height="18" viewBox="0 0 18 18"><path d="M17 14c0 .44-.45 1-1 1H9a1 1 0 0 1-1-1H2c-.54 0-1-.56-1-1 0-2.63 3-4 3-4s.23-.4 0-1c-.84-.62-1.06-.59-1-3 .06-2.42 1.37-3 2.5-3s2.44.58 2.5 3c.06 2.41-.16 2.38-1 3-.23.59 0 1 0 1s1.55.71 2.42 2.09c.78-.72 1.58-1.1 1.58-1.1s.23-.4 0-1c-.84-.61-1.06-.58-1-3 .06-2.41 1.37-3 2.5-3s2.44.59 2.5 3c.05 2.42-.16 2.39-1 3-.23.6 0 1 0 1s3 1.38 3 4Z"></path></svg>                
+                    <span>Users</span>    
+                </li>
+                <li class="d-flex ai-center">
+                    <svg aria-hidden="true" class="svg-icon iconBriefcase" width="18" height="18" viewBox="0 0 18 18"><path d="M5 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7c0-1.1.9-2 2-2h1V4Zm7 0H6v1h6V4Z"></path></svg>                
+                    <span>Companies</span>
+                </li>
+                <li style="height: 20px;"></li>
+                <li style="gap: 50%;">
+                    <div><b>Labs</b></div>
+                    <div class="flex--item px12">
+                        <svg aria-hidden="true" class="svg-icon iconInfoSm" width="14" height="14" viewBox="0 0 14 14"><path d="M7 1a6 6 0 1 1 0 12A6 6 0 0 1 7 1Zm1 10V6H6v5h2Zm0-6V3H6v2h2Z"></path></svg>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex--item px12">
+                        <svg aria-hidden="true" class="fc-black-400 w16 svg-icon iconSpeechBubble" width="18" height="18" viewBox="0 0 18 18"><path d="m4 15-3 3V4c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4Z"></path></svg>
+                    </div>
+                    <span>Discussions</span>
+                </li>
+                <li style="height: 20px;"></li>
+                <li style="gap: 20%;">
+                    <div><b>Collectives</b></div>
+                    <div class="flex--item px12">
+                        <svg aria-hidden="true" class="svg-icon iconPlusSm" width="14" height="14" viewBox="0 0 14 14"><path d="M8 2H6v4H2v2h4v4h2V8h4V6H8V2Z"></path></svg>
+                    </div>
+                </li>
+                <li class="d-flex ai-center" style="overflow: hidden;">
+                    <svg aria-hidden="true" class="mt-auto fc-orange-400 svg-icon iconStarVerified" width="18" height="18" viewBox="0 0 18 18"><path d="M9.86.89a1.14 1.14 0 0 0-1.72 0l-.5.58c-.3.35-.79.48-1.23.33l-.72-.25a1.14 1.14 0 0 0-1.49.85l-.14.76c-.1.45-.45.8-.9.9l-.76.14c-.67.14-1.08.83-.85 1.49l.25.72c.15.44.02.92-.33 1.23l-.58.5a1.14 1.14 0 0 0 0 1.72l.58.5c.35.3.48.79.33 1.23l-.25.72c-.23.66.18 1.35.85 1.49l.76.14c.45.1.8.45.9.9l.14.76c.14.67.83 1.08 1.49.85l.72-.25c.44-.15.92-.02 1.23.33l.5.58c.46.52 1.26.52 1.72 0l.5-.58c.3-.35.79-.48 1.23-.33l.72.25c.66.23 1.35-.18 1.49-.85l.14-.76c.1-.45.45-.8.9-.9l.76-.14c.67-.14 1.08-.83.85-1.49l-.25-.72c-.15-.44-.02-.92.33-1.23l.58-.5c.52-.46.52-1.26 0-1.72l-.58-.5c-.35-.3-.48-.79-.33-1.23l.25-.72a1.14 1.14 0 0 0-.85-1.49l-.76-.14c-.45-.1-.8-.45-.9-.9l-.14-.76a1.14 1.14 0 0 0-1.49-.85l-.72.25c-.44.15-.92.02-1.23-.33l-.5-.58Zm-.49 2.67L10.6 6.6c.05.15.19.24.34.25l3.26.22c.36.03.5.48.23.71l-2.5 2.1a.4.4 0 0 0-.14.4l.8 3.16a.4.4 0 0 1-.6.44L9.2 12.13a.4.4 0 0 0-.42 0l-2.77 1.74a.4.4 0 0 1-.6-.44l.8-3.16a.4.4 0 0 0-.13-.4l-2.5-2.1a.4.4 0 0 1 .22-.7l3.26-.23a.4.4 0 0 0 .34-.25l1.22-3.03a.4.4 0 0 1 .74 0Z"></path></svg>          
+                    <span style="white-space: nowrap;">Explore Collectives</span>
+                </li>
+            </ul>
+        </section>
+        <section class="col-6" style="position: absolute; left: 19%;">
+            <div class="row" style=" margin: 5% 0;">
+                <h2 class="col-10" style="margin: 0; padding: 0;">Top Questions</h2>
+                <button class="col-2 btn btn-primary">Ask Question</button>
+            </div>
+            <!----------------------------------->
+            <div class="card mb-2" style="width: 100%;">
+                <div class="row g-0 flex-lg-row justify-content-center align-items-center">
+                  <div class="col-md-1">
+                    <img src="./svgs/magnify-glass-ai.svg" class="img-fluid rounded-start" alt="..." width="100%">
+                  </div>
+                  <div class="col-md-9">
+                    <div class="card-body">
+                      <h5 class="card-title">New search experience powered by AI</h5>
+                      <p class="card-text">Stack Overflow is leveraging AI to summarize the most relevant questions and answers from the community, with the option to ask follow-up questions in a conversational format.</p>
+                      <a href="#">Get early access</a>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+            <!----------------------------------->
+            <div style="height: 50px;"></div>
+            <div class="card" style="padding: 1%; margin: 1% auto;">
+                <h5>mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it</h5>
+                <p>[enter image description here](https://i.stack.imgur.com/dhB4[[enter image description here](https://i.stack.imgur.com/mjehk.png)](https://i.stack.imgur.com/PKIgu.png)S.png) why is mysql not ...</p>
+            </div>
+            <div class="card" style="padding: 1%; margin: 1% auto;">
+                <h5>mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it</h5>
+                <p>[enter image description here](https://i.stack.imgur.com/dhB4[[enter image description here](https://i.stack.imgur.com/mjehk.png)](https://i.stack.imgur.com/PKIgu.png)S.png) why is mysql not ...</p>
+            </div>
+            <div class="card" style="padding: 1%; margin: 1% auto;">
+                <h5>mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it</h5>
+                <p>[enter image description here](https://i.stack.imgur.com/dhB4[[enter image description here](https://i.stack.imgur.com/mjehk.png)](https://i.stack.imgur.com/PKIgu.png)S.png) why is mysql not ...</p>
+            </div>
+            <div class="card" style="padding: 1%; margin: 1% auto;">
+                <h5>mysqli_real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it</h5>
+                <p>[enter image description here](https://i.stack.imgur.com/dhB4[[enter image description here](https://i.stack.imgur.com/mjehk.png)](https://i.stack.imgur.com/PKIgu.png)S.png) why is mysql not ...</p>
+            </div>
+        </section>
+        <article class="col-3" style="margin: 3% 0; position: absolute; left: 75%;">
+            <div class="card border-warning mb-3" style="max-width: 90%;">
+                <div class="card-header" style="background-color: rgb(243, 215, 139);">Featured On Meta</div>
+                <div class="card-body" style="background-color: rgb(254, 236, 193);">
+                    <p class="card-text">What would you like to change about the moderator election process?</p>
+                    <p class="card-text">Data Dumps Releases: Timeline Updates and Clarification</p>
+                    <p class="card-text">Temporary policy: Generative AI (e.g., ChatGPT) is banned</p>
+                    <p class="card-text">Discussions update: Expansion to all tags</p>
+                </div>
+            </div>
+            <div class="card border-warning mb-3" style="max-width: 90%;">
+                <div class="card-header" style="background-color: rgb(243, 215, 139);">Featured On Meta</div>
+                <div class="card-body" style="background-color: rgb(254, 236, 193);">
+                    <p class="card-text">What would you like to change about the moderator election process?</p>
+                    <p class="card-text">Data Dumps Releases: Timeline Updates and Clarification</p>
+                    <p class="card-text">Temporary policy: Generative AI (e.g., ChatGPT) is banned</p>
+                    <p class="card-text">Discussions update: Expansion to all tags</p>
+                </div>
+            </div>
+            <div class="card border-warning mb-3" style="max-width: 90%;">
+                <div class="card-header" style="background-color: rgb(243, 215, 139);">Featured On Meta</div>
+                <div class="card-body" style="background-color: rgb(254, 236, 193);">
+                    <p class="card-text">What would you like to change about the moderator election process?</p>
+                    <p class="card-text">Data Dumps Releases: Timeline Updates and Clarification</p>
+                    <p class="card-text">Temporary policy: Generative AI (e.g., ChatGPT) is banned</p>
+                    <p class="card-text">Discussions update: Expansion to all tags</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>
